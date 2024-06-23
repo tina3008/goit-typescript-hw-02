@@ -1,0 +1,9 @@
+.imgList {
+  display: flex;
+  gap: 30px;
+  list-style-type: none;
+  flex-wrap: wrap;
+  margin: 30px;
+  justify-content: center;
+  
+}
