@@ -7,11 +7,15 @@ import Loader from "./Loader/Loader";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./ImageModal/ImageModal";
+import { Image } from "./App.types";
 
-
+interface Responce {
+  results:[];
+  total: number;
+}
 
 export default function App() {
-  const [images, setImages] = useState<ImageData[]>([]);
+  const [images, setImages] = useState < Image[]>([]);
   const [error, setError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
@@ -26,11 +30,14 @@ export default function App() {
       return;
     }
   
+  
     async function fetchImages(): Promise<void> {
       try {
         setLoading(true);
         setError(false);
-        const { results, total} = await getImages(searchQuery, page);
+
+        const resonse: Responce = await getImages(searchQuery, page);
+        const { results, total } = resonse;
 
         setImages((prevState) => [...prevState, ...results]);
         setTotalPage(page < Math.ceil(total / 15));
