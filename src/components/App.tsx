@@ -51,9 +51,8 @@ export default function App() {
     fetchImages();
   }, [searchQuery, page]);
 
-  const handleSearch: (searchImg: string) => Promise<void> = async (
-    searchImg) => {
-    setSearchQuery(searchImg);
+  const handleSearch: (query: string) => Promise<void> = async (query) => {
+    setSearchQuery(query);
     setPage(1);
     setImages([]);
   };
