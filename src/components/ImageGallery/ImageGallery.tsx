@@ -1,7 +1,18 @@
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
 
-export default function ImageGallery({ items, onImageClick }) {
+interface Image {
+  id: string;
+  urls: string;
+  slug: string;
+}
+
+interface ImageGalleryProps {
+  items: Image[];
+  onImageClick: (slug: string) => void;
+}
+
+const ImageGallery: React.FC<ImageGalleryProps> = ({ items, onImageClick }) => {
   return (
     <ul className={css.imgList}>
       {items.map(({ id, urls, slug }) => (
@@ -11,4 +22,6 @@ export default function ImageGallery({ items, onImageClick }) {
       ))}
     </ul>
   );
-}
+};
+
+export default ImageGallery;

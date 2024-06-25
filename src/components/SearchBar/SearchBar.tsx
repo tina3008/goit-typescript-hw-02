@@ -2,16 +2,19 @@ import toast, { Toaster } from "react-hot-toast";
 
 import css from "./SearchBar.module.css";
 
-export default function SearchBar({ onSearch }) {
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    const form = evt.target;
-    const searchImg = form.elements.searchImg.value;
+interface SearchBarProps {
+  onSearch: (searchImg: string) => void;
+}
 
+export default function SearchBar({ onSearch }: SearchBarProps) {
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+    const form = evt.target as HTMLFormElement;
+    const searchImg = form.elements.searchImg.value;
     if (searchImg.trim() === "") {
       toast("Please fill in search folder", {
         style: {
-          color: 'red',   
+          color: "red",
         },
       });
       return;
@@ -28,7 +31,7 @@ export default function SearchBar({ onSearch }) {
           className={css.input}
           type="text"
           name="searchImg"
-           autoComplete="off"
+          autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
         />
