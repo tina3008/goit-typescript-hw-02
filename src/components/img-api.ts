@@ -1,8 +1,9 @@
 import axios from "axios";
 
-
-
-export const getImages = async (setSearchQuery: string, setPage: number): Promise<T>=>{
+export const getImages = async <T>(
+  setSearchQuery: string,
+  setPage: number
+): Promise<T> => {
   try {
     const response = await axios.get<T>(
       `https://api.unsplash.com/search/photos`,

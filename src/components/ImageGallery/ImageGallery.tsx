@@ -3,7 +3,10 @@ import css from "./ImageGallery.module.css";
 
 interface Image {
   id: string;
-  urls: string;
+  urls: {
+    small: string;
+    regular: string;
+  };
   slug: string;
 }
 
