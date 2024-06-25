@@ -1,12 +1,11 @@
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
+import {Link} from '../App.types'
+
 
 interface Image {
   id: string;
-  urls: {
-    small: string;
-    regular: string;
-  };
+  urls: Link;
   slug: string;
 }
 

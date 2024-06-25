@@ -1,10 +1,8 @@
 import css from "./ImageCard.module.css";
+import { Link } from "../App.types";
 
 interface ImageCardProps {
-  imgLink: {
-    small: string;
-    regular: string;
-  };
+  imgLink: Link;
   imgSlug: string;
   onClick: (imageUrl: string) => void;
 }
