@@ -8,11 +8,11 @@ export default function Loader(){
         <Audio
   height="80"
   width="80"
-  radius="9"
+//   radius="9"
   color="blue"
   ariaLabel="loading"
-  wrapperStyle
-  wrapperClass
+//   wrapperStyle
+//   wrapperClass
 />
 <p>Loading data, please wait...</p>
         </div>

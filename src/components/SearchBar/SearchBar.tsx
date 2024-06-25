@@ -10,7 +10,8 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     const form = evt.target as HTMLFormElement;
-    const searchImg = form.elements.searchImg.value;
+    const searchImg =
+      form.elements.searchImg.value;
     if (searchImg.trim() === "") {
       toast("Please fill in search folder", {
         style: {
