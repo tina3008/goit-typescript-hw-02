@@ -27,7 +27,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     }
 
     onSearch(query);   
-    // form.reset();
+      // form.reset();
   };
 
   return (

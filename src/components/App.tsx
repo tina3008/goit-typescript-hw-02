@@ -36,7 +36,8 @@ export default function App() {
         setLoading(true);
         setError(false);
 
-        const resonse: Responce = await getImages(searchQuery, page);
+        // const resonse: Responce = await getImages(searchQuery, page);
+        const resonse = await getImages<Responce>(searchQuery, page);
         const { results, total } = resonse;
 
         setImages((prevState) => [...prevState, ...results]);
@@ -51,17 +52,17 @@ export default function App() {
     fetchImages();
   }, [searchQuery, page]);
 
-  const handleSearch: (query: string) => Promise<void> = async (query) => {
+  const handleSearch= (query: string) =>  {
     setSearchQuery(query);
     setPage(1);
     setImages([]);
   };
 
-  const hendleLoadMore: () => Promise<void> = async () => {
+  const hendleLoadMore =  () => {
     setPage(page + 1);
   };
 // modal
-    const openModal: (imageUrl: string) => void = (imageUrl) => {
+    const openModal= (imageUrl: string)  => {
       setSelectedImageUrl(imageUrl);
       setModalIsOpen(true);
     };
